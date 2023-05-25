@@ -25,13 +25,13 @@ public class PessoaJuridica extends Pessoa {
         this.socios = socios;
     }
 
-    public PessoaJuridica addDependente(Pessoa socio) {
+    public PessoaJuridica addSocio(Pessoa socio) {
         //TODO não pode ser a mesma pessoa
         this.socios.add(socio);
         return this;
     }
 
-    public PessoaJuridica removeDependente(Pessoa socio) {
+    public PessoaJuridica removeSocio(Pessoa socio) {
         this.socios.remove(socio);
         return this;
     }
