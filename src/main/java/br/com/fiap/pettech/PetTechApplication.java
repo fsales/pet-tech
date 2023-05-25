@@ -11,3 +11,6 @@ public class PetTechApplication {
     }
 
 }
+
+// atalho
+// alt + . + inset
