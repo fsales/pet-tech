@@ -13,10 +13,14 @@ public abstract class Pessoa {
     public Pessoa() {
     }
 
-    public Pessoa(Long id, String nome, LocalDate nascimento) {
-        this.id = id;
-        this.nome = nome;
-        this.nascimento = nascimento;
+    public Pessoa(
+            Long id,
+            String nome,
+            LocalDate nascimento
+    ) {
+        this.setId(id);
+        this.setNome(nome);
+        this.setNascimento(nascimento);
     }
 
     public Long getId() {
@@ -61,10 +65,11 @@ public abstract class Pessoa {
 
     @Override
     public String toString() {
-        return "Pessoa{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", nascimento=" + nascimento +
-                '}';
+        final StringBuilder sb = new StringBuilder("Pessoa{");
+        sb.append("id=").append(id);
+        sb.append(", nome='").append(nome).append('\'');
+        sb.append(", nascimento=").append(nascimento);
+        sb.append('}');
+        return sb.toString();
     }
 }

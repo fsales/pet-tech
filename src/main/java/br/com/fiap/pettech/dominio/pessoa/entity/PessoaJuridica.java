@@ -7,28 +7,32 @@ import java.util.Vector;
 
 public class PessoaJuridica extends Pessoa {
 
-    private String cnpj;
+    String cnpj;
 
-    private Collection<Pessoa> socios = new Vector<>();
-
+    private Collection<Pessoa> socios =  new Vector<>();
 
     public PessoaJuridica() {
     }
 
-    public PessoaJuridica(Long id, String nome, LocalDate nascimento, String cnpj, Collection<Pessoa> socios) {
+    public PessoaJuridica(
+            Long id,
+            String nome,
+            LocalDate nascimento,
+            String cnpj,
+            Collection<Pessoa> socios) {
         super(id, nome, nascimento);
         this.cnpj = cnpj;
         this.socios = socios;
     }
 
-    public PessoaJuridica addSocio(Pessoa p) {
-        //TODO: não pode ser a mesma pessoa
-        socios.add(p);
+    public PessoaJuridica addDependente(Pessoa socio) {
+        //TODO não pode ser a mesma pessoa
+        this.socios.add(socio);
         return this;
     }
 
-    public PessoaJuridica removerSocio(Pessoa p) {
-        socios.remove(p);
+    public PessoaJuridica removeDependente(Pessoa socio) {
+        this.socios.remove(socio);
         return this;
     }
 
@@ -48,9 +52,11 @@ public class PessoaJuridica extends Pessoa {
 
     @Override
     public String toString() {
-        return "PessoaJuridica{" +
-                "cnpj='" + cnpj + '\'' +
-                ", socios=" + socios +
-                "} " + super.toString();
+        final StringBuilder sb = new StringBuilder("PessoaJuridica{");
+        sb.append("cnpj='").append(cnpj).append('\'');
+        sb.append(", socios=").append(socios);
+        sb.append('}')
+                .append(super.toString());
+        return sb.toString();
     }
 }
